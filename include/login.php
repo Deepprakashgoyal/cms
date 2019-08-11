@@ -7,6 +7,8 @@
  $username = mysqli_real_escape_string($connection, $username);
  $password = mysqli_real_escape_string($connection, $password);
 
+     // query for fetching user data from database
+    
  	$query = "SELECT * FROM users WHERE username = '$username'";
  	$select_user_query = mysqli_query($connection, $query);
  	if (!$select_user_query) {
@@ -19,6 +21,8 @@
  		  $db_user_role = $row['user_role'];
 
  	}
+ 	// validating user data from inputed data
+ 	
  	if ($db_username === $username && $db_password === $password) {
  		$_SESSION['username'] = $db_username;
         $_SESSION['user_role'] = $db_user_role;      

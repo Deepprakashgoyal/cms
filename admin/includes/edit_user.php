@@ -1,6 +1,9 @@
 <?php 
 if (isset($_GET['edit_user'])) {
 	$the_user_id = $_GET['edit_user'];
+
+	// query for selecting user data from database using user id
+
 	$query = "SELECT * FROM users WHERE user_id = $the_user_id";
 	$select_user_query = mysqli_query($connection, $query);
 	if (!$select_user_query) {
@@ -27,13 +30,16 @@ if (isset($_GET['edit_user'])) {
 		$user_image = $_FILES['image']['name'];
 		$user_image_temp = $_FILES['image']['tmp_name'];
 		move_uploaded_file($user_image_temp, "../images/$user_image");
+      
+      // query for updating user data into database
 
 		$query = "UPDATE users SET user_firstname = '$user_firstname', user_lastname = '$user_lastname', username = '$username', user_role = '$user_role', user_image = '$user_image', user_password = '$user_password', user_email = '$user_email' WHERE user_id = $the_user_id";
 		$update_user_query = mysqli_query($connection, $query);
 		if (!$update_user_query) {
 			die("QUERY FAILED" . mysqli_error($connection));
-
 		}
+   echo "<span class='alert-success'>User Updated successfully: </span>" . " " . "<a href='users.php'>View User</a>";
+
 
 
 

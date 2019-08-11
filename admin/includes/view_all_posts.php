@@ -1,7 +1,57 @@
+<?php 
+if (isset($_POST['submit'])) {
+foreach ($_POST['checkboxArray'] as $postValueId) {
 
+  $bulk_option = $_POST['bulk_option'];
+
+  switch ($bulk_option) {
+    case 'published':
+      $query = "UPDATE posts SET post_status = '{$bulk_option}' WHERE post_id = '{$postValueId}' ";
+      $upate_to_publish_status = mysqli_query($connection, $query);
+      if (!$upate_to_publish_status) {
+        die("query failed" . mysql_error($connection));
+      }
+      break;
+      case 'draft':
+      $query = "UPDATE posts SET post_status = '{$bulk_option}' WHERE post_id = '{$postValueId}' ";
+      $upate_to_draft_status = mysqli_query($connection, $query);
+      if (!$upate_to_draft_status) {
+        die("query failed" . mysql_error($connection));
+      }
+      break;
+
+      case 'delete':
+      $query = "DELETE FROM posts WHERE post_id = '{$postValueId}' ";
+      $delete_post = mysqli_query($connection, $query);
+      if (!$delete_post) {
+        die("query failed" . mysql_error($connection));
+      }
+      break;
+  }
+
+}
+}
+ ?>
+
+<!-- showing all post data from database -->
+
+<form action="" method="post">
 <table class="table table-bordered table-hover">
+  <div class="col-md-4" style="padding-left: 0; padding-bottom: 10px;">
+    <select id="" class="form-control" name="bulk_option">
+      <option value="">Select option</option>
+      <option value="published">published</option>
+      <option value="draft">Draft</option>
+      <option value="delete">Delete</option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <input type="submit" class="btn btn-success" value="Apply" name="submit">
+    <input type="submit" class="btn btn-primary" value="Add New" >
+  </div>
                             <thead>
                                 <tr>
+                                  <th><input type="checkbox" id="checkallboxes"></th>
                                     <th>ID</th>
                                     <th> AUTHOR</th>
                                     <th>TITLE</th>
@@ -20,7 +70,8 @@
                             </thead>
                             <tbody>
                                 <?php 
-
+                               // query for getting post data from database
+                                
                                 $query = "SELECT * FROM posts";
                                 $select_post = mysqli_query($connection, $query);
                                 if (!$select_post) {
@@ -39,6 +90,10 @@
                                     $post_image = $row['post_image'];
 
                                       echo "<tr>";
+                                      ?>
+                                      <td><input type="checkbox" value="<?php echo $post_id?>" name="checkboxArray[]" class="checkboxes"></td>
+                                      
+                                      <?php
                                       echo "<td>{$post_id}</td>";
                                       echo "<td>{$post_author}</td>";
                                       echo "<td>{$post_title}</td>";
@@ -75,6 +130,7 @@
                                
                             </tbody>
                         </table>
+                        </form>
  <?php 
  if (isset($_GET['delete'])) {
     $delete = $_GET['delete'];

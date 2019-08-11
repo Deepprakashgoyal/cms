@@ -15,7 +15,9 @@
         </form>
         <!-- /.input-group -->
     </div>
+    
     <!--Login form-->
+
     <div class="well">
         <h4>Login</h4>
         <form action="include/login.php" method="post">
@@ -35,6 +37,9 @@
     </div>
     <!-- Blog Categories Well -->
     <div class="well">
+
+        <!-- query for fetching catagories from database -->
+
         <?php
         
         $query = "SELECT * FROM category";

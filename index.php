@@ -13,6 +13,9 @@
             Page Heading
             <small>Secondary Text</small>
             </h1>
+
+            <!-- displaying posts from database -->
+            
             <?php
             $query = "SELECT * FROM posts where post_status = 'published' ORDER BY post_id DESC ";
             $select_post_query = mysqli_query($connection, $query);

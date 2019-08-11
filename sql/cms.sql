@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2019 at 07:36 PM
+-- Generation Time: Aug 11, 2019 at 09:11 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -101,10 +101,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `post_catagory_id`, `post_title`, `post_author`, `post_comment_count`, `post_content`, `post_date`, `post_image`, `post_tag`, `post_status`) VALUES
-(9, 25, 'strawberry smoothie', 'deep', '', '			\r\n						\r\n						\r\n						\r\n			Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.								', '2019-06-09', 'cold, smooth & tasty..png', 'deep', 'published'),
-(10, 31, 'mushroom soup', 'manali', '', '			\r\n						\r\n			Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.				', '2019-06-08', 'footwear-leather-shoes-267320.jpg', 'soup', 'published'),
-(12, 25, 'shoe trends', 'jimmy', '', '			\r\n			shoes are most fashionable thing in this world everyone likes shoes		', '2019-06-08', 'fashion-footwear-shoes-19090.jpg', 'shoe, fashion', 'published'),
-(13, 25, 'nail desings in trends', 'miny', '', '			\r\n			i love nail art this is a setisfieng thing \r\n		', '2019-06-08', 'cold, smooth & tasty. (2).png', 'nail art, fashion', 'published');
+(15, 28, 'fashion trends', 'deep', '', '<p>this is first blog</p>', '2019-08-12', '22-3.jpg', 'fashion', 'published'),
+(17, 33, 'latest bags trend', 'manali', '', 'this is a post reletad to bags', '2019-08-12', '5-28.jpg', 'fashion, men shoes, ', 'draft');
 
 -- --------------------------------------------------------
 
@@ -129,18 +127,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`) VALUES
-(1, 'nandini45', 'nandini', 'nandini', 'goel', 'nandini@gmail.com', 'Untitled design.png', 'subscriber', ''),
-(5, 'deep23', 'deep23', 'deep', 'prakash', 'deep@gmail.com', 'download (1).png', 'admin', ''),
-(6, 'mohan123', 'mohan123', 'mohan', 'rajput', 'mohan@gmail.com', 'Untitled design (4).png', 'admin', ''),
-(7, 'sanu', 'sanu', 'sanu', 'goyal', 'sanu@gmail.com', 'prewedding-1024x853.jpg', 'admin', ''),
-(8, 'sanu', 'sanu', 'sanu', 'goyal', 'sanu@gmail.com', 'prewedding-1024x853.jpg', 'admin', ''),
-(9, '', '', '', '', '', '', 'admin', ''),
-(10, '', '', '', '', '', '', 'admin', ''),
-(11, '', '', '', '', '', '', 'admin', ''),
-(12, 'sanu', 'sanu', 'sanu', 'sanu ', 'sanu@gmail.com', 'prewedding-1024x853.jpg', 'admin', ''),
-(13, 'sanu', 'sanu', 'sanu', 'sanu ', 'sanu@gmail.com', 'prewedding-1024x853.jpg', 'admin', ''),
-(14, 'sanu', 'sanu', 'sanu', 'sanu ', 'sanu@gmail.com', 'prewedding-1024x853.jpg', 'admin', ''),
-(15, 'sanu', 'sanu', 'sanu', 'sanu ', 'sanu@gmail.com', 'prewedding-1024x853.jpg', 'admin', '');
+(16, 'deep23', 'deep23', 'deep ', 'goyal', 'deepprakashgoyal@gmail.com', 'images.jpg', 'admin', ''),
+(17, 'sumit', 'sumit123', 'sumit', 'gupta', 'sumit@gmail.com', '1331Sudigali Sudheer.jpg', 'admin', ''),
+(18, 'sumit', 'sumit123', 'sumit', 'gupta', 'sumit@gmail.com', '1331Sudigali Sudheer.jpg', 'admin', '');
 
 --
 -- Indexes for dumped tables
@@ -178,7 +167,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -190,13 +179,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
    if (!$result) {
    	die("QUERY FAILED" . mysqli_error($connection));
    }
-   echo "<span class='bg-success'>User added successfully: </span>" . " " . "<a href='users.php'>View User</a>";
+   echo "<span class='alert-success'>User added successfully: </span>" . " " . "<a href='users.php'>View User</a>";
 
    }
 

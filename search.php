@@ -11,22 +11,27 @@
             Page Heading
             <small>Secondary Text</small>
             </h1>
-            
+            <!-- query for searching post tag name in database -->
             <?php
             if (isset($_POST['submit'])) {
             $search = $_POST['search'];
-            $query = "SELECT * FROM posts WHERE post_tag LIKE '%$search%'";
+            $query = "SELECT * FROM posts WHERE post_tag = '$search' ";
             $search_query = mysqli_query($connection, $query);
             if (!$search_query) {
             die("QUERY FAILED" . mysqli_error($connection));
             }
             $count = mysqli_fetch_row($search_query);
-            if ($count == 0) {
+            $array_length["default_count"] = count($count);
+            if ($array_length == 0) {
             echo "<h1>NO RESULT FOUND</h1>";
             }else{
+                echo "result found";
+
+            // fatching post data from database 
                 
             while ($row = mysqli_fetch_assoc($search_query)) {
-            $post_title = $row['post_title'];
+
+            echo $post_title = $row['post_title'];
             $post_date = $row['post_date'];
             $post_content = $row['post_content'];
             $post_author = $row['post_author'];

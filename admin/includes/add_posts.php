@@ -1,4 +1,7 @@
 <?php 
+
+// getting input data 
+
 if(isset($_POST['submit'])) {
    
    $post_title = $_POST['title'];
@@ -13,12 +16,15 @@ if(isset($_POST['submit'])) {
    $post_image_temp = $_FILES['image']['tmp_name'];
    move_uploaded_file($post_image_temp, "../images/$post_image");
 
+   // query for inserting data into database
+
    $query = "INSERT INTO posts(post_catagory_id, post_title, post_author, post_content, post_date, post_image, post_tag, post_status )";
    $query .= "VALUES ('{$post_category}','{$post_title}','{$post_author}','{$post_content}',now(),'{$post_image}','{$post_tag}','{$post_status}' )";
    $result = mysqli_query($connection, $query);
    if (!$result) {
    	die("QUERY FAILED" . mysqli_error($connection));
    }
+   echo "<span class='alert-success'>Post added successfully: </span>" . " " . "<a href='posts.php'>View Post</a>";
    }
 
 
@@ -73,7 +79,7 @@ if(isset($_POST['submit'])) {
 	</div>
 	<div class="form-group">
 		<label>Post content</label>
-		<textarea name="post_content" id="" rows="10" class="form-control"></textarea>
+		<textarea name="post_content" id="editor" rows="10" class="form-control"></textarea>
 	</div>
 	<input type="submit" name="submit" value="submit" class="btn btn-primary">
 </form>

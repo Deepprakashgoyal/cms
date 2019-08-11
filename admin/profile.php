@@ -1,6 +1,9 @@
 <?php include "includes/header.php" ?>
 <?php include "../include/database.php" ?>
 <?php 
+
+// query for getting user data from database
+
  if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
      $query = "SELECT * FROM users WHERE username = '$username'";
@@ -21,6 +24,9 @@
  }
  
  ?>
+
+    <!-- query for updating user data into database -->
+
  <?php 
   if (isset($_POST['submit'])) {
         $user_firstname = $_POST['user_firstname'];

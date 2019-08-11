@@ -122,10 +122,10 @@
 	</div>
 	<div class="form-group">
 		<label>Post content</label>
-		<textarea name="post_content" id="" rows="10" class="form-control">
+		<textarea name="post_content" id="editor" rows="10" class="form-control">
 			
 			<?php echo $post_content; ?>
 		</textarea>
 	</div>
-	<input type="submit" name="update_post" value="submit" class="btn btn-primary">
+	<input type="submit" name="update_post" value="submit" class="btn btn-primary" >
 </form>
