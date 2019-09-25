@@ -90,9 +90,17 @@ if (isset($_GET['edit_user'])) {
 		<input type="Email" name="user_email" class="form-control" value="<?php echo $user_email; ?>">
 	</div><div class="form-group">
 		<label for="user tag">User Role</label>
-		<select name="user_role" id="" class="form-control" value="<?php echo $user_role; ?>">
-			<option value="admin">Admin</option>
-			<option value="subscriber">Subscriber</option>
+		<select name="user_role" id="" class="form-control">
+			<option value='<?php echo $user_role; ?>'><?php echo $user_role; ?></option>
+			<?php 
+			if($user_role == "admin"){
+				echo "<option value='subscriber'>Subscriber</option>";
+			}else{
+			echo "<option value='admin'>Admin</option>";
+
+			}
+
+			 ?>
 
 		</select>
 		

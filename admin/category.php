@@ -38,12 +38,6 @@
                             }
                         }
                         }
-                    
-
-
-
-
-
 
                      ?>
 
@@ -73,7 +67,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>CATEGORY TITLE</th>
-                                    <th> </th>
+                                    <th>DELETE </th>
                                 </tr>
                             </thead>
 
@@ -91,7 +85,7 @@
                                    echo "<tr>";
                                    echo "<td>{$cat_id}</td>";
                                    echo "<td>{$cat_title}</td>";
-                                   echo "<td><a href='category.php?del={$cat_id}'>Delete</a></td>";
+                                   echo "<td><a onClick=\" javascript: return confirm('are you sure, you want to delete');\" href='category.php?del={$cat_id}'>Delete</a></td>";
                                    echo "</tr>";
                             }
                              ?>

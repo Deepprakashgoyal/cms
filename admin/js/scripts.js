@@ -23,5 +23,17 @@ $('#checkallboxes').click(function(event){
 });
 
 
+// loader for admin panel
+
+// var loader = "<div id='load-screen'><div id='loading'></div></div>";
+// $('#body').append(loader);
+// $('#load-screen').delay(700).fadeOut(600, function(){
+//   $(this).remove();
+// });
+
+
+
+
+
 
 });

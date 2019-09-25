@@ -13,37 +13,11 @@
             Page Heading
             <small>Secondary Text</small>
             </h1>
-             <!-- post counting -->
-            <?php 
-
-            if(isset($_GET['page'])){
-                $page = $_GET['page'];
-            }else{
-                $page = "";
-            }
-            if($page == "" || $page == 1){
-                $page_1 = 0;
-            }else{
-                $page_1 = ($page * 5) - 5;
-            }
-            
-            $query = "SELECT * FROM posts";
-            $post_count_query = mysqli_query($connection, $query);
-            if(!$post_count_query){
-                die("query failed" . mysqli_error($connection));
-            }
-            $count = mysqli_num_rows($post_count_query);
-            $count = ceil($count/5);
-
-             ?>
-
-
-
 
             <!-- displaying posts from database -->
             
             <?php
-            $query = "SELECT * FROM posts where post_status = 'published' ORDER BY post_id DESC LIMIT $page_1,  5 ";
+            $query = "SELECT * FROM posts where post_status = 'published' ORDER BY post_id DESC ";
             $select_post_query = mysqli_query($connection, $query);
             
             while ($row = mysqli_fetch_assoc($select_post_query)) {
@@ -75,24 +49,16 @@
             
             <?php } ?>
             
-
+            
            
             <!-- Pager -->
             <ul class="pager">
-                <?php 
-                for($i=1; $i<=$count; $i++){
-                    if ($i == $page) {
-                echo "<li class='active'><a href='index.php?page={$i}'>{$i}</a></li>";
-                        # code...
-                    }else{
-                        
-                echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
-                    }
-                   }
-
-
-                 ?>
-               
+                <li class="previous">
+                    <a href="#">&larr; Older</a>
+                </li>
+                <li class="next">
+                    <a href="#">Newer &rarr;</a>
+                </li>
             </ul>
         </div>
         <!-- Blog Sidebar Widgets Column -->

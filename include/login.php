@@ -21,6 +21,10 @@
  		  $db_user_role = $row['user_role'];
 
  	}
+ 	$hash_format = "$2y$10$";
+ 	$salt = "iusessomecrazystring22";
+
+ 	// $password = crypt("$2y$10$iusessomecrazystring22", $password);
  	// validating user data from inputed data
  	
  	if ($db_username === $username && $db_password === $password) {
@@ -29,6 +33,7 @@
  		header("location: ../admin");
  		
  	}else{
+ 		echo "this is wrong info";
  		header("location: ../index.php");
  	}
  }

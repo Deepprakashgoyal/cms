@@ -7,10 +7,10 @@
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-            <h1 class="page-header">
+            <!-- <h1 class="page-header">
             Page Heading
             <small>Secondary Text</small>
-            </h1>
+            </h1> -->
             <!-- query for searching post tag name in database -->
             <?php
             if (isset($_POST['submit'])) {
@@ -20,18 +20,18 @@
             if (!$search_query) {
             die("QUERY FAILED" . mysqli_error($connection));
             }
-            $count = mysqli_fetch_row($search_query);
-            $array_length["default_count"] = count($count);
+            $count = mysqli_fetch_array($search_query);
+            $array_length = count($count);
             if ($array_length == 0) {
-            echo "<h1>NO RESULT FOUND</h1>";
+            echo "<h1>SORRY, NO RESULT FOUND</h1>";
             }else{
-                echo "result found";
+                echo "<h1>HERE ARE SOME RESULTS</h1>";
 
             // fatching post data from database 
                 
             while ($row = mysqli_fetch_assoc($search_query)) {
 
-            echo $post_title = $row['post_title'];
+            $post_title = $row['post_title'];
             $post_date = $row['post_date'];
             $post_content = $row['post_content'];
             $post_author = $row['post_author'];
